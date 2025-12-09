@@ -1,0 +1,269 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2025-12-09T00:00:00.000Z",
+    "__export_source": "mini-crm-insomnia-export",
+    "resources": [
+      {
+        "_id": "wrk_206cd8fa",
+        "_type": "workspace",
+        "parentId": null,
+        "name": "Mini CRM",
+        "description": "Test endpoints for Mini CRM lead distribution service"
+      },
+      {
+        "_id": "env_e4a256b8",
+        "_type": "environment",
+        "parentId": "wrk_206cd8fa",
+        "name": "Base Environment",
+        "data": {
+          "baseUrl": "http://127.0.0.1:8000/api/v1"
+        }
+      },
+      {
+        "_id": "fld_ops_5c6dcbec",
+        "_type": "request_group",
+        "parentId": "wrk_206cd8fa",
+        "name": "Operators",
+        "description": ""
+      },
+      {
+        "_id": "fld_src_8d5f561d",
+        "_type": "request_group",
+        "parentId": "wrk_206cd8fa",
+        "name": "Sources",
+        "description": ""
+      },
+      {
+        "_id": "fld_cts_d24e0e21",
+        "_type": "request_group",
+        "parentId": "wrk_206cd8fa",
+        "name": "Contacts & Leads",
+        "description": ""
+      },
+      {
+        "_id": "fld_stats_be34a67c",
+        "_type": "request_group",
+        "parentId": "wrk_206cd8fa",
+        "name": "Stats",
+        "description": ""
+      },
+      {
+        "_id": "req_16867c50",
+        "_type": "request",
+        "parentId": "fld_ops_5c6dcbec",
+        "name": "Create operator",
+        "method": "POST",
+        "url": "{{ baseUrl }}/operators",
+        "parameters": [],
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "authentication": {},
+        "metaSortKey": 0.1,
+        "isPrivate": false,
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"name\": \"Alice\",\n  \"max_active_contacts\": 10\n}"
+        }
+      },
+      {
+        "_id": "req_b98e6e0c",
+        "_type": "request",
+        "parentId": "fld_ops_5c6dcbec",
+        "name": "List operators",
+        "method": "GET",
+        "url": "{{ baseUrl }}/operators",
+        "parameters": [],
+        "headers": [],
+        "authentication": {},
+        "metaSortKey": 0.2,
+        "isPrivate": false,
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global"
+      },
+      {
+        "_id": "req_0455fb9b",
+        "_type": "request",
+        "parentId": "fld_ops_5c6dcbec",
+        "name": "Update operator (set inactive / change limit)",
+        "method": "PATCH",
+        "url": "{{ baseUrl }}/operators/1",
+        "parameters": [],
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "authentication": {},
+        "metaSortKey": 0.3,
+        "isPrivate": false,
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"is_active\": true,\n  \"max_active_contacts\": 20\n}"
+        }
+      },
+      {
+        "_id": "req_b06b9182",
+        "_type": "request",
+        "parentId": "fld_src_8d5f561d",
+        "name": "Create source",
+        "method": "POST",
+        "url": "{{ baseUrl }}/sources",
+        "parameters": [],
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "authentication": {},
+        "metaSortKey": 0.1,
+        "isPrivate": false,
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"name\": \"Bot A\",\n  \"description\": \"Telegram bot\"\n}"
+        }
+      },
+      {
+        "_id": "req_ef057f5d",
+        "_type": "request",
+        "parentId": "fld_src_8d5f561d",
+        "name": "List sources",
+        "method": "GET",
+        "url": "{{ baseUrl }}/sources",
+        "parameters": [],
+        "headers": [],
+        "authentication": {},
+        "metaSortKey": 0.2,
+        "isPrivate": false,
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global"
+      },
+      {
+        "_id": "req_148567e9",
+        "_type": "request",
+        "parentId": "fld_src_8d5f561d",
+        "name": "Set routing for source 1",
+        "method": "PUT",
+        "url": "{{ baseUrl }}/sources/1/routing",
+        "parameters": [],
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "authentication": {},
+        "metaSortKey": 0.3,
+        "isPrivate": false,
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"routing\": [\n    { \"operator_id\": 1, \"weight\": 10 },\n    { \"operator_id\": 2, \"weight\": 30 }\n  ]\n}"
+        }
+      },
+      {
+        "_id": "req_ee8da62a",
+        "_type": "request",
+        "parentId": "fld_cts_d24e0e21",
+        "name": "Create contact (auto-assign operator)",
+        "method": "POST",
+        "url": "{{ baseUrl }}/contacts",
+        "parameters": [],
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "authentication": {},
+        "metaSortKey": 0.1,
+        "isPrivate": false,
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"lead_key\": \"user_123\",\n  \"source_id\": 1,\n  \"payload\": \"First message from user_123\"\n}"
+        }
+      },
+      {
+        "_id": "req_8b9ffa3d",
+        "_type": "request",
+        "parentId": "fld_cts_d24e0e21",
+        "name": "List leads",
+        "method": "GET",
+        "url": "{{ baseUrl }}/contacts/leads",
+        "parameters": [],
+        "headers": [],
+        "authentication": {},
+        "metaSortKey": 0.2,
+        "isPrivate": false,
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global"
+      },
+      {
+        "_id": "req_69e37e9c",
+        "_type": "request",
+        "parentId": "fld_stats_be34a67c",
+        "name": "Operator stats (active contacts)",
+        "method": "GET",
+        "url": "{{ baseUrl }}/stats/operators",
+        "parameters": [],
+        "headers": [],
+        "authentication": {},
+        "metaSortKey": 0.1,
+        "isPrivate": false,
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global"
+      }
+    ]
+  }
+  
